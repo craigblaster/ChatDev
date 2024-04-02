@@ -322,6 +322,24 @@ class DemandAnalysis(Phase):
         return chat_env
 
 
+class ExplainCode(Phase):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def update_phase_env(self, chat_env):
+        self.phase_env.update({"task": chat_env.env_dict['task_prompt'],
+                               "language": chat_env.env_dict['language'],
+                               "codes": chat_env.get_codes()})
+
+    def update_chat_env(self, chat_env) -> ChatEnv:
+        if "```".lower() in self.seminar_conclusion.lower():
+            chat_env.update_codes(self.seminar_conclusion)
+            # chat_env.rewrite_codes("Explaination Finished")
+            log_visualize(
+                "**[Software Info]**:\n\n {}".format(get_info(chat_env.env_dict['directory'], self.log_filepath)))
+        self.phase_env['explaination_conclusion'] = self.seminar_conclusion
+        return chat_env
+
 class LanguageChoose(Phase):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

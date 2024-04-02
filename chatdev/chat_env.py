@@ -67,6 +67,7 @@ class ChatEnv:
             "ideas": "",
             "language": "",
             "review_comments": "",
+            "explaination_conclusion": "",
             "error_summary": "",
             "test_reports": ""
         }

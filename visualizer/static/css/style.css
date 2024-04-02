@@ -4,7 +4,7 @@
     width: 2500px;
     height: 700px;
     border: 1px solid black;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     background-color: white;
     position: relative;
 }

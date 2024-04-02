@@ -1,5 +1,5 @@
 # Start with a Python 3.9 base image
-FROM python:3.9-slim
+FROM osrf/ros:iron-desktop
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install necessary libraries for GUI support
-RUN apt-get update && apt-get install -y python3-tk x11-apps
+RUN apt-get update && apt-get install -y python3-pip python3-tk x11-apps
 
 # Install the project dependencies
 RUN pip install --no-cache-dir -r requirements.txt
