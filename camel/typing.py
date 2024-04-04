@@ -38,6 +38,7 @@ class RoleType(Enum):
     CHATDEV_CPO = "chief product officer (CPO)"
     CHATDEV_CTO = "chief technology officer (CTO)"
     CHATDEV_PROGRAMMER = "programmer"
+    CHATDEV_JUNIOR_PROGRAMMER = "junior engineer"
     CHATDEV_REVIEWER = "code reviewer"
     CHATDEV_TESTER = "software test engineer"
     CHATDEV_CCO = "chief creative officer (CCO)"
